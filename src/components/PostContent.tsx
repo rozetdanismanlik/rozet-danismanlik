@@ -5,16 +5,16 @@ import RehypeReact from 'rehype-react';
 
 import { colors } from '../styles/colors';
 
-// rome-ignore lint/suspicious/noExplicitAny: <explanation>
+// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 const renderAst = new (RehypeReact as any)({
   createElement: React.createElement,
   components: {},
 }).Compiler;
 
-// rome-ignore lint/suspicious/noExplicitAny: <explanation>
+// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 const Ast = ({ ast, ...props }: any) => {
   ast.properties = props;
-  return renderAst(ast);
+  return renderAst.render(ast);
 };
 
 export type PostContentProps = {
