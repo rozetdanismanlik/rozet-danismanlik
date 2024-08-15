@@ -2,7 +2,7 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
-import { getSrc, IGatsbyImageData } from 'gatsby-plugin-image';
+import { getSrc, type IGatsbyImageData } from 'gatsby-plugin-image';
 
 import { Footer } from '../components/Footer';
 import SiteNav from '../components/header/SiteNav';
@@ -26,7 +26,7 @@ import {
 import type { PageContext } from './post';
 
 import config from '../website-config';
-import { IGatsbyImageDataParent } from 'gatsby-plugin-image/dist/src/components/hooks';
+import type { IGatsbyImageDataParent } from 'gatsby-plugin-image/dist/src/components/hooks';
 
 type AuthorTemplateProps = {
   location: Location;
@@ -68,11 +68,12 @@ function Author({ data, location }: AuthorTemplateProps) {
 
     let authorParticipated = false;
     if (edge.node.frontmatter.author) {
-      edge.node.frontmatter.author.forEach(element => {
+      for (const element of edge.node.frontmatter.author) {
         if (element.name === author.name) {
           authorParticipated = true;
+          break;
         }
-      });
+      }
     }
 
     return isDraft && authorParticipated;
