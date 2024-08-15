@@ -15,7 +15,7 @@ import { SiteNavLogo } from './SiteNavLogo';
 type SiteNavProps = {
   isHome?: boolean;
   isPost?: boolean;
-  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+  // rome-ignore lint/suspicious/noExplicitAny: <explanation>
   post?: any;
 };
 

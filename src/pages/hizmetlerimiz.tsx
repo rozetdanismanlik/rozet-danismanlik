@@ -1,4 +1,4 @@
-import type React from 'react';
+import React from 'react';
 import { css } from '@emotion/react';
 import { graphql } from 'gatsby';
 
@@ -20,7 +20,7 @@ import {
 import { NoImage, PostFull, PostFullHeader, PostFullTitle } from '../templates/post';
 import type { PageContext } from '../templates/post';
 import { colors } from '../styles/colors';
-import type { IGatsbyImageData } from 'gatsby-plugin-image';
+import { IGatsbyImageData } from 'gatsby-plugin-image';
 
 const PageTemplate = css`
   .site-main {
