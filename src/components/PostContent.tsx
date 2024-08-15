@@ -6,20 +6,21 @@ import RehypeReact from 'rehype-react';
 import { colors } from '../styles/colors';
 
 // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-const renderAst = new (RehypeReact as any)({
+const renderAst = new RehypeReact({
   createElement: React.createElement,
   components: {},
 }).Compiler;
 
 // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-const Ast = ({ ast, ...props }: any) => {
+const Ast = ({ ast, ...props }) => {
   ast.properties = props;
-  return renderAst.render(ast);
+  return renderAst(ast); // Pass the ast directly to renderAst
 };
 
 export type PostContentProps = {
   htmlAst: string;
 };
+
 
 function PostContent({ htmlAst }: PostContentProps) {
   return (
